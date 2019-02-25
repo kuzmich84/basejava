@@ -17,13 +17,13 @@ public class ArrayStorage {
         if (r.toString() != "" && r.toString() != null) {
             int index = getIndex(r.toString());
             if (index == storage.length) {
-                System.out.println("Resume overflow");
+                System.out.println("Storage overflow");
             } else if (index == -1) {
                 storage[size] = r;
                 size++;
 
             } else {
-                System.out.println("Resume already exists");
+                System.out.println("Resume already exist");
 
             }
         } else {
@@ -49,7 +49,7 @@ public class ArrayStorage {
 
 
         }
-        System.out.println("Resume not exists");
+        System.out.println("Resume not exist");
         return null;
     }
 
