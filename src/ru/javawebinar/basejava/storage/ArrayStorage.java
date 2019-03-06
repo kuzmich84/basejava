@@ -9,7 +9,8 @@ import ru.javawebinar.basejava.model.Resume;
  * Array based storage for Resumes
  */
 public class ArrayStorage {
-    private Resume[] storage = new Resume[10000];
+    private static final int STORAGE_LIMIT = 10000;
+    private Resume[] storage = new Resume[STORAGE_LIMIT];
 
     private int size = 0;
 
@@ -19,9 +20,9 @@ public class ArrayStorage {
     }
 
     public void save(Resume r) {
-        if (r.toString() != "" && r.toString() != null) {
+
             int index = getIndex(r.toString());
-            if (index == storage.length) {
+            if (index == STORAGE_LIMIT) {
                 System.out.println("Storage overflow");
             } else if (index == -1) {
                 storage[size] = r;
@@ -31,9 +32,7 @@ public class ArrayStorage {
                 System.out.println("Resume already exist");
 
             }
-        } else {
-            System.out.println("Enter correct value");
-        }
+
     }
 
     public void update(Resume r) {
