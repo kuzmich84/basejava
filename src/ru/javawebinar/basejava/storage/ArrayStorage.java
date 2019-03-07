@@ -6,11 +6,7 @@ import ru.javawebinar.basejava.model.Resume;
 /**
  * Array based storage for Resumes
  */
-public class ArrayStorage implements Storage {
-    private static final int STORAGE_LIMIT = 10000;
-    private Resume[] storage = new Resume[STORAGE_LIMIT];
-
-    private int size = 0;
+public class ArrayStorage extends AbstractArrayStorage {
 
     public void clear() {
         Arrays.fill(storage, null);
@@ -78,10 +74,7 @@ public class ArrayStorage implements Storage {
         return Arrays.copyOfRange(storage,0, size);
     }
 
-    public int size() {
 
-        return size;
-    }
 
     private int getIndex(String uuid) {
         for (int i = 0; i < size; i++) {
