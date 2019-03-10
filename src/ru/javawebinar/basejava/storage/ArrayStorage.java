@@ -8,10 +8,7 @@ import ru.javawebinar.basejava.model.Resume;
  */
 public class ArrayStorage extends AbstractArrayStorage {
 
-    public void clear() {
-        Arrays.fill(storage, null);
-        size = 0;
-    }
+
 
     public void save(Resume r) {
 
@@ -40,8 +37,6 @@ public class ArrayStorage extends AbstractArrayStorage {
 
     }
 
-
-
     public void delete(String uuid) {
         int index = getIndex(uuid);
         if (index != -1) {
@@ -60,10 +55,7 @@ public class ArrayStorage extends AbstractArrayStorage {
     /**
      * @return array, contains only Resumes in storage (without null)
      */
-    public Resume[] getAll() {
 
-        return Arrays.copyOfRange(storage,0, size);
-    }
 
 
 
