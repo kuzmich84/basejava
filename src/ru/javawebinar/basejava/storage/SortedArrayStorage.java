@@ -6,68 +6,30 @@ import java.util.Arrays;
 
 public class SortedArrayStorage extends AbstractArrayStorage {
 
+    @Override
+    protected void insertElement(Resume r, int index) {
+      //https://juja.com.ua/java/algorithms/sorting-optimizing/
 
-    protected  void insertElement(Resumer r, int index) {
-        index = -(index) - 1;
-        System.arraycopy(storage, index, storage, index + 1, k - index);
-        storage[index] = newElement;
-        }
-
-
-
+       int insertIndex = -(index) - 1;
+        System.arraycopy(storage, insertIndex, storage, insertIndex + 1, size - insertIndex);
+        storage[insertIndex] = r;
+           }
 
 
 
     @Override
-    public void save(Resume r) {
-        int index = getIndex(r.toString());
-        if (index == STORAGE_LIMIT) {
-            System.out.println("Storage overflow");
-        } else if (index == -1) {
-            storage[size] = r;
-            size++;
-            sort(storage);
-
-        } else {
-            System.out.println("Resume already exist");
+    protected void fillDeletedElement(int index) {
+        int numberMoved = -(index) - 1;
+        if(numberMoved>0) {
+            System.arraycopy(storage, index+1, storage, index, numberMoved );
 
         }
-
     }
-
-    @Override
-    public void update(Resume r) {
-        int index = getIndex(r.toString());
-        if (index != -1) {
-            storage[index] = r;
-            sort(storage);
-
-        } else {
-            System.out.println("Resume not exist");
-        }
-    }
-
-    @Override
-    public void delete(String uuid) {
-        int index = getIndex(uuid);
-        if (index != -1) {
-            storage[index] = storage[size - 1];
-            storage[size - 1] = null;
-            size--;
-            sort(storage);
-
-        } else {
-            System.out.println("Resume don't find");
-
-        }
-
-    }
-
 
     @Override
     protected  int getIndex(String uuid) {
         Resume searchKey=new Resume();
         searchKey.setUuid(uuid);
-        return Arrays.binarySearch(sort(storage),0,size,searchKey);
+        return Arrays.binarySearch(storage,0,size,searchKey);
     }
 }
