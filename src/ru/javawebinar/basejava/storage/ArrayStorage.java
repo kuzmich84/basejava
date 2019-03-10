@@ -10,47 +10,11 @@ public class ArrayStorage extends AbstractArrayStorage {
 
 
 
-    public void save(Resume r) {
-
-            int index = getIndex(r.toString());
-            if (index == STORAGE_LIMIT) {
-                System.out.println("Storage overflow");
-            } else if (index == -1) {
-                storage[size] = r;
-                size++;
-
-            } else {
-                System.out.println("Resume already exist");
-
-            }
-
-    }
-
-    public void update(Resume r) {
-        int index = getIndex(r.toString());
-        if (index != -1) {
-            storage[index] = r;
-
-        } else {
-            System.out.println("Resume not exist");
-        }
-
-    }
-
-    public void delete(String uuid) {
-        int index = getIndex(uuid);
-        if (index != -1) {
-            storage[index] = storage[size - 1];
-            storage[size - 1] = null;
-            size--;
-
-        } else {
-            System.out.println("Resume don't find");
-
-        }
 
 
-    }
+
+
+
 
     /**
      * @return array, contains only Resumes in storage (without null)
@@ -69,5 +33,9 @@ public class ArrayStorage extends AbstractArrayStorage {
 
     }
 
+    @Override
+    public void update(Resume r) {
+
+    }
 }
 
