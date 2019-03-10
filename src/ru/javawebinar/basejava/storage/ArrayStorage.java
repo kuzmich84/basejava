@@ -1,6 +1,5 @@
 package ru.javawebinar.basejava.storage;
 
-import java.util.Arrays;
 import ru.javawebinar.basejava.model.Resume;
 
 /**
@@ -10,17 +9,15 @@ public class ArrayStorage extends AbstractArrayStorage {
 
 
     @Override
-    protected void insertElement(Resume r, int index) {
-       storage[size]=r;
+    protected void insertElement(Resume element, int index) {
+        storage[size] = element;
     }
+
 
     @Override
     protected void fillDeletedElement(int index) {
-        storage[index]=storage[size-1];
+        storage[index] = storage[size - 1];
     }
-
-
-
 
 
     protected int getIndex(String uuid) {

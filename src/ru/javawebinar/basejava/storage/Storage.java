@@ -2,28 +2,20 @@ package ru.javawebinar.basejava.storage;
 
 import ru.javawebinar.basejava.model.Resume;
 
-import java.util.Arrays;
 
-/**
- * Array based storage for Resumes
- */
 public interface Storage {
 
+    void clear();
 
-     void clear();
+     void save(Resume element);
 
-     void save(Resume r);
-
-     void update(Resume r);
+     void update(Resume element);
 
      Resume get(String uuid);
 
      void delete(String uuid);
 
-    /**
-     * @return array, contains only Resumes in storage (without null)
-     */
-    Resume[] getAll();
+     Resume[] getAll();
 
      int size();
 
