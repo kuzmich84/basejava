@@ -13,16 +13,17 @@ public abstract class AbstractArrayStorage implements Storage {
     public void clear() {
         Arrays.fill(storage, 0, size, null);
         size = 0;
+
+
     }
 
 
     public void save(Resume element) {
         int index = getIndex(element.getUuid());
-        if (index == STORAGE_LIMIT) {
+        if (size == STORAGE_LIMIT) {
             System.out.println("Storage overflow");
         } else if (index < 0) {
             insertElement(element, index);
-            storage[size] = element;
             size++;
         } else {
             System.out.println("Resume already exist");
