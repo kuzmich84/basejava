@@ -5,10 +5,6 @@ import ru.javawebinar.basejava.model.Resume;
 import ru.javawebinar.basejava.storage.ArrayStorage;
 
 
-
-
-
-
 /**
  * Test ru.javawebinar.basejava.storage.ArrayStorage
  */
@@ -28,14 +24,11 @@ public class MainTestArrayStorage {
         ARRAY_STORAGE.save(r2);
 
 
-
-
         System.out.println("Get r1: " + ARRAY_STORAGE.get(r1.getUuid()));
         System.out.println("Size: " + ARRAY_STORAGE.size());
 
 
         System.out.println("Get dummy: " + ARRAY_STORAGE.get("dummy"));
-
 
 
         printAll();
@@ -46,7 +39,6 @@ public class MainTestArrayStorage {
 
         System.out.println("Size: " + ARRAY_STORAGE.size());
     }
-
 
 
     static void printAll() {

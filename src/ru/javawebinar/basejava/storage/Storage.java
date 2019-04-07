@@ -7,18 +7,17 @@ public interface Storage {
 
     void clear();
 
-     void save(Resume element);
+    void save(Resume element);
 
-     void update(Resume element);
+    void update(Resume element);
 
-     Resume get(String uuid);
+    Resume get(String uuid);
 
-     void delete(String uuid);
+    void delete(String uuid);
 
-     Resume[] getAll();
+    Resume[] getAll();
 
-     int size();
-
+    int size();
 
 
 }
